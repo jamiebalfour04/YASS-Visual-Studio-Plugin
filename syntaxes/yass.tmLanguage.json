@@ -1,0 +1,84 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "YASS Programming Language",
+	"patterns": [
+
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#ml_comments"
+		},
+		{
+			"include": "#annotations"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#vars"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"vars": {
+			"patterns": [{
+				"name": "variable.language.yass",
+				"match": "\\$(_?([A-z][A-z0-9_]*))"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.yass",
+				"match": "\\b(end|if|else|elseif|for|while|loop|do|until|math|function|structure|define|declare|var|let|each|when|is|switch|case|default|map|list|class|new|copyof|as|in|to|and|or|equal|nequal|asserts|then|not|return|import|includes|try|catch|public|private|break|inherits|be|by|static|record|create)\\b"
+			}]
+		},
+		"functions": {
+			"patterns": [{
+				"name": "entity.name.function.member.yass",
+				"match": "\\b(is_set|unset|global|get_version|write_cache_value|read_cache_value|list_cache_values|run_script|run_command|exit|sprintf|shell|update_zpe|get_zpe_property|type|std_new_line|throw_error|std_err|print|std_out|std_in|auto_input|write|get_password_input|print_warning|handle_of|copy_of|permission_level_of|list_local_variables|list_structures|list_parameters|list_global_variables|create_variable|is_function|get_call_stack|get_function_information|list_zpe_functions|list_zpe_aliases|list_plugins|supports|feedback|get_nanoseconds|wait|undefined|do_nothing|deserialise|get_unique_id|get_yes_no|beep|open_audio_stream|run_in_thread|run_in|run_at|time|list_object_properties|get_object_property|shutdown|get_max_memory|get_os_name|set_http_status|set_header|wake_on_lan|ping|get_hostname|http_post|http_download|send_zpe_server_request|get_ip_address|get_remote_ip_address|power|square|cube|sine|cosine|tangent|absolute_value|square_root|cube_root|log|factorial|is_prime_number|sign|floor|ceiling|round|significant_figures|limit_real|random_number|value|remove_exponent|range|range_inclusive|counter|to_binary|to_octal|to_hexadecimal|to_denary|greater_than_all|greater_than_any|less_than_all|less_than_any|equals_any|all_true|all_false|any_true|any_false|in_range|xor|implies|iff|nor|get_minimum|get_maximum|get_range|get_mean|get_mode|get_median|evaluate| aes_encrypt|aes_decrypt|sha1|sha256|md5|password_hash|password_verify|file_encrypt|file_decrypt|integer_to_character|character_to_integer|string_to_list|string_get_character_at|string_get_length|string_contains|string_split|string_splice|string_divide|string_find_occurences|string_get_substring|string_to_lowercase|string_to_uppercase|string_replace|string_starts_with|string_ends_with|string_cut|string_trim|string_trim_start|string_trim_end|string_matches|string_to_date|string_is_numeric|string_is_lowercase|string_is_uppercase|string_text_compare|input_validate|beautify|generate_random_string|generate_alphabet|format_string|speak|is_symlink|create_symlink|replace_symlink|list_drives|is_directory|directory_exists|directory_list_files|directory_create|is_file|file_exists|file_touch|file_get_size|file_get_name|file_get_path|file_get_parent_path|file_open|file_get_bytes|file_put_bytes|file_get_contents|file_put_contents|file_copy|file_delete|create_temporary_file|array_to_list|array_get_data_type|list_to_array|list_add_element|list_remove_element|list_remove_all|list_get_at_index|list_get_at_random_index|list_shuffle|list_compress|list_pop|list_dequeue|list_get_length|list_contains|list_contains_all|list_get_index_of|list_count_occurrences|list_count_if|list_find_duplicates|list_insert_at_index|list_set_at_index|list_reverse|list_sort|list_swap_elements|list_join|list_slice|list_is_a_set|list_populate|list_auto_populate|list_process|list_combine|list_compose|set_from_list|set_intersection|set_union|set_difference|set_cartesian_product|list_to_map|map_get|map_remove|map_put|map_contains|map_get_keys|map_flip|map_create_ordered|csv_decode|json_decode|xml_decode|csv_encode|json_encode)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.yass",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.yass",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"name": "comment.line.number-sign.yass",
+			"begin": "//",
+			"end": "\\n"
+		},
+		"ml_comments": {
+			"patterns": [
+				{
+					"begin" : "/\\*",
+					"captures" : {
+						"0" : {
+							"name" : "punctuation.definition.comment"
+						}
+					},
+					"end" : "\\*/",
+					"name" : "comment.block.yass"
+				}
+			]		
+		},
+		"annotations": {
+			"name": "comment.line.number-sign.yass",
+			"begin": "@",
+			"end": " "
+		}
+	},
+	"scopeName": "source.yass"
+}

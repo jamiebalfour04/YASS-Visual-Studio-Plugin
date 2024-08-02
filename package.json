@@ -1,0 +1,26 @@
+{
+  "name": "yass",
+  "displayName": "ZPE/YASS",
+  "description": "ZPE/YASS",
+  "version": "1.10.11",
+  "icon" : "https://www.jamiebalfour.scot/public/zpe.png",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "yass",
+      "aliases": ["ZPE/YASS", "yass"],
+      "extensions": [".yas"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "yass",
+      "scopeName": "source.yass",
+      "path": "./syntaxes/yass.tmLanguage.json"
+    }]
+  }
+}
